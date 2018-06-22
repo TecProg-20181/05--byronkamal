@@ -1,15 +1,19 @@
 import unittest
+import os
 from diskspace import *
 
 class TestDiskspace(unittest.TestCase):
 
+ def test_subprocess_check_output(self):
+    command = 'ls'
+    check = subprocess_check_output(command)
+    self.assertEqual(subprocess_check_output(command), check)
 
-    def test_bytes_to_readable(self):
-        command = bytes_to_readable(256)
-        self.assertEqual(command, '128.00Kb')
-        self.assertNotEqual(command, '256.00Kb')
+ def test_bytes_to_readable(self):
+    command = bytes_to_readable(512)
+    self.assertEqual(command, '256.00Kb')
+    self.assertNotEqual(command, '512.00Kb')
 
 
-suite =
-unittest.TestLoader().loadTestsFromTestCase(TestDiskspace)
-unittest.TextTestRunner(verbosity=2).run(suite)
+if __name__ == '__main__':
+    unittest.main()
