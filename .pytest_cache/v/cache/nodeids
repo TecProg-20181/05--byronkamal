@@ -1,0 +1,5 @@
+[
+  "diskspace/test_diskspace.py::TestDiskspace::test_bytes_to_readable", 
+  "diskspace/test_diskspace.py::TestDiskspace::test_show_space_list", 
+  "diskspace/test_diskspace.py::TestDiskspace::test_subprocess_check_output"
+]

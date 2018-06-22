@@ -1,12 +1,13 @@
 import unittest
 import os
+import subprocess
 from diskspace import *
 
 class TestDiskspace(unittest.TestCase):
 
  def test_subprocess_check_output(self):
     command = 'ls'
-    method = subprocess_check_output(command)
+    method = subprocess.check_output(command)
     self.assertEqual(subprocess_check_output(command), method)
 
  def test_bytes_to_readable(self):
@@ -18,5 +19,5 @@ class TestDiskspace(unittest.TestCase):
     self.assertIsNone(show_space_list(directory='.', depth=-1, order=True))
 
 
-if __name__ == '__main__':
-    unittest.main()
+suite = unittest.TestLoader().loadTestsFromTestCase(TestDiskspace)
+unittest.TextTestRunner(verbosity=2).run(suite)
